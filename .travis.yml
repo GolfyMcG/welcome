@@ -2,7 +2,7 @@ language: ruby
 before_install:
   - sudo apt-get install xvfb
 rvm:
-  - "2.1.2"
+  - '2.1.5'
 script: 'xvfb-run bundle exec rake'
 addons:
   code_climate:
