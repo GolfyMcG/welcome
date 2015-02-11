@@ -4,18 +4,23 @@ if ENV['CODECLIMATE_REPO_TOKEN']
 end
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
-ENV["RAILS_ENV"] ||= 'test'
-require File.expand_path("../../config/environment", __FILE__)
+ENV['RAILS_ENV'] ||= 'test'
+require File.expand_path('../../config/environment', __FILE__)
 require 'rubygems'
 require 'rspec/rails'
 require 'capybara/rspec'
-require "paperclip/matchers"
+require 'paperclip/matchers'
 require 'capybara/webkit/matchers'
 require 'prickle/capybara'
+require 'simplecov'
+
+SimpleCov.start 'rails'
+SimpleCov.minimum_coverage 90
+SimpleCov.refuse_coverage_drop
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
-Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 # Checks for pending migrations before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
@@ -40,7 +45,8 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = false
   config.before(:each) do |example|
-    DatabaseCleaner.strategy = example.metadata[:js] ? :truncation : :transaction
+    strategy = example.metadata[:js] ? :truncation : :transaction
+    DatabaseCleaner.strategy = strategy
     DatabaseCleaner.start
   end
   config.after(:each) do
@@ -56,17 +62,15 @@ RSpec.configure do |config|
   # order dependency and want to debug it, you can fix the order by providing
   # the seed, which is printed after each run.
   #     --seed 1234
-  config.order = "random"
+  config.order = 'random'
 
   config.include Rails.application.routes.url_helpers
 
   config.include Paperclip::Shoulda::Matchers
 
-  config.include(Capybara::Webkit::RspecMatchers, :type => :feature)
+  config.include(Capybara::Webkit::RspecMatchers, type: :feature)
 
   config.include(Capybara::DSL)
 
   config.include(Prickle::Capybara)
 end
-
-

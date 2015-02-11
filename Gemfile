@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.4'
+ruby '2.1.5'
 gem 'rails', '4.2.0'
 
 gem 'pg'
@@ -17,25 +17,24 @@ gem 'simple_form'
 gem 'mail_form'
 gem 'devise'
 gem 'cancan'
-gem 'paperclip', "~> 4.1"
+gem 'paperclip', '~> 4.1'
 gem 'rmagick', '2.13.2', require: 'RMagick'
 gem 'gmaps4rails'
 gem 'underscore-rails'
 gem 'draper'
 
-group :development, :test do
+group :test do
   gem 'rspec-rails'
   gem 'pry-rails'
-end
-
-group :test do
+  gem 'rubocop', require: false
+  gem 'rails_best_practices'
   gem 'capybara'
   gem 'capybara-webkit'
   gem 'prickle'
   gem 'database_cleaner'
   gem 'launchy'
   gem 'shoulda-matchers'
-  gem "codeclimate-test-reporter", require: nil
+  gem 'codeclimate-test-reporter', require: nil
 end
 
 # Assets related gems

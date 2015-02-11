@@ -1,0 +1,18 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/alexvilla/apps/wedding/app/controllers/welcome_controller.rb": [
+        1,
+        null
+      ],
+      "/Users/alexvilla/apps/wedding/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        null
+      ]
+    },
+    "timestamp": 1423629358
+  }
+}
