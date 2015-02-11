@@ -26,7 +26,8 @@ gem 'draper'
 group :test do
   gem 'rspec-rails'
   gem 'pry-rails'
-  gem 'rubocop', require: false
+  gem 'rubocop'
+  gem 'rubocop-rspec'
   gem 'rails_best_practices'
   gem 'capybara'
   gem 'capybara-webkit'
