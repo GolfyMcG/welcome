@@ -1,0 +1,9 @@
+language: ruby
+before_install:
+  - sudo apt-get install xvfb
+rvm:
+  - "2.1.2"
+script: 'xvfb-run bundle exec rake travis:build'
+addons:
+  code_climate:
+    repo_token: '594a933aa23e0be2462e121d0c67bd2fd2c9712727bc4c68b6bf03a91e801a36'
